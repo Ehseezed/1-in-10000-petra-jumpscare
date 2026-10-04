@@ -1,0 +1,25 @@
+{
+  "name": "1-in-10000-petra-jumpscare",
+  "title": "1 in 10000 Petra Jumpscare",
+  "description": "1 in 10000 chance for that running skeleton video with the bad to the bone riff.",
+  "authors": [
+    {
+      "name": "Ehseezed"
+    }
+  ],
+  "scripts": [
+    "scripts/jumpscare.js"
+  ],
+  "styles": [
+    "styles/jumpscare.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "version": "0.0.1",
+  "minimumCoreVersion": "14.0.0"
+}
