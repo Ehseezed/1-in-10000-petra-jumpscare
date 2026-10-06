@@ -1,7 +1,7 @@
 {
   "id": "1-in-10000-petra-jumpscare",
   "title": "1 in 10000 Petra Jumpscare",
-  "description": "1 in 10000 chance for that running skeleton video with the bad to the bone riff.",
+  "description": "A configurable random jumpscare with support for gif/webp files.",
   "authors": [
     {
       "name": "Ehseezed"
