@@ -15,7 +15,7 @@ Hooks.once('init', () => {
 
   game.settings.register(MODULE_ID, 'chance', {
     name: 'Petra Jumpscare Chance',
-    hint: 'The chance of the jumpscare happening every second expressed as a 1/[value] chance. Default is 1/10000.',
+    hint: 'The chance of the jumpscare happening every second expressed as a 1/[value] chance.\nDefault is 1/10000.',
     scope: 'world',
     config: true,
     type: Number,
@@ -29,33 +29,35 @@ Hooks.once('init', () => {
 
   game.settings.register(MODULE_ID, 'imagePath', {
     name: 'Jumpscare gif',
-    hint: 'A path to an image or animated WebP file. For example: modules/my-module/jumpscare.webp',
+    hint: 'A path to an image or animated WebP file.\nPath relative to the FoundryVTT/Data folder.',
     scope: 'world',
     config: true,
     type: String,
+    filePicker: 'image',
     default: DEFAULT_IMAGE_PATH
   });
 
   game.settings.register(MODULE_ID, 'audioPath', {
     name: 'Jumpscare Audio',
-    hint: 'A path to the audio file played with the jumpscare.',
+    hint: 'the path to an audio file played with the jumpscare.\nPath relative to the FoundryVTT/Data folder.',
     scope: 'world',
     config: true,
     type: String,
+    filePicker: 'audio',
     default: DEFAULT_AUDIO_PATH
   });
 
   game.settings.register(MODULE_ID, 'volume', {
     name: 'Audio Volume',
     hint: 'The jumpscare audio volume.',
-    scope: 'world',
+    scope: 'client',
     config: true,
     type: Number,
     default: 0.15,
     range: {
       min: 0,
       max: 1,
-      step: 0.05
+      step: 0.01
     }
   });
 
@@ -72,6 +74,7 @@ Hooks.once('init', () => {
       step: 1
     }
   });
+
 });
 
 Hooks.once('ready', () => {
@@ -145,8 +148,7 @@ Hooks.once('ready', () => {
       }
       return getAnimatedImageDuration(await response.arrayBuffer());
     } catch (error) {
-      console.warn('Unable to read gif/webp animation metadata.', error);
-      console.warn('Unable to read  animation metadata.', error);
+      console.warn('Unable to read animation metadata please check the file path and try again.', error);
       return null;
     }
   }
